@@ -115,9 +115,9 @@ public class SQLiteConnect {
          * @return
 	 */
 	public ArrayList<String> getStudent(String name) {
-            String sql = "SELECT NameFROM Schedules WHERE Name = ?,"
-                        + "Subject1, Subject2, Subject3, Subject4,"
-			+ "Subject5, Subject6, Subject7, Subject8, Subject9";
+            String sql = "SELECT Name, Subject1, Subject2, Subject3, Subject4,"
+			+ " Subject5, Subject6, Subject7, Subject8, Subject9 "
+                        + " FROM Schedules WHERE Name == ?";
             ArrayList<String> info = new ArrayList<>();
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
