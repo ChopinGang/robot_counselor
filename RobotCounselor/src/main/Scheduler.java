@@ -11,5 +11,8 @@ package main;
  * @author Kellan Elhai
  */
 public class Scheduler {
+    public static schedulePerson(ArrayList<String> person) {
+        //do something
+    }
     
 }
