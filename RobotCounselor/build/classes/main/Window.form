@@ -25,7 +25,7 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   <Component id="inputPanel" min="-2" max="-2" attributes="0"/>
@@ -61,57 +61,33 @@
       <Layout>
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
-              <Group type="102" attributes="0">
+              <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="englishBox" max="32767" attributes="0"/>
+                      <Component id="bandBox" max="32767" attributes="0"/>
                       <Group type="102" attributes="0">
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="healthBox" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                              <Component id="englishBox" max="32767" attributes="0"/>
-                              <Component id="bandBox" max="32767" attributes="0"/>
-                          </Group>
-                          <EmptySpace pref="133" max="32767" attributes="0"/>
-                      </Group>
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="getStudentButton" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Component id="updateButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
+                              <Component id="addClassesButton" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Component id="gymBox" max="32767" attributes="0"/>
+                                  <Component id="artBox" max="32767" attributes="0"/>
+                                  <Component id="chemistryBox" max="32767" attributes="0"/>
+                                  <Component id="frenchBox" max="32767" attributes="0"/>
+                                  <Component id="ssBox" max="32767" attributes="0"/>
                               </Group>
-                              <Component id="deleteButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="addClassesButton" alignment="0" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="gymBox" max="32767" attributes="0"/>
-                                          <Component id="artBox" max="32767" attributes="0"/>
-                                          <Component id="chemistryBox" max="32767" attributes="0"/>
-                                          <Component id="frenchBox" max="32767" attributes="0"/>
-                                          <Component id="ssBox" max="32767" attributes="0"/>
-                                      </Group>
-                                      <Component id="algebraBox" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="codingBox" max="32767" attributes="0"/>
-                                      <Component id="economicsBox" min="-2" max="-2" attributes="0"/>
-                                      <Component id="medTechBox" min="-2" max="-2" attributes="0"/>
-                                      <Component id="statisticsBox" alignment="0" min="-2" max="-2" attributes="0"/>
-                                      <Component id="theatreBox" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="engineeringBox" max="32767" attributes="0"/>
-                                      <Component id="debateBox" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="orchestraBox" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="horticultureBox" alignment="0" max="32767" attributes="0"/>
-                                  </Group>
-                              </Group>
+                              <Component id="algebraBox" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="healthBox" alignment="0" min="-2" pref="91" max="-2" attributes="0"/>
+                              <Component id="updateButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="13" max="32767" attributes="0"/>
+                          <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Component id="jScrollPane1" min="-2" pref="204" max="-2" attributes="0"/>
-                  <EmptySpace pref="13" max="32767" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="jScrollPane1" min="-2" pref="212" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -123,59 +99,29 @@
                       <Group type="102" attributes="0">
                           <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="algebraBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="codingBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="algebraBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="bandBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="orchestraBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="bandBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="englishBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="debateBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="englishBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="healthBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="theatreBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="healthBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="ssBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="horticultureBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="ssBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="frenchBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="medTechBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="frenchBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="chemistryBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="engineeringBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="chemistryBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="artBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="statisticsBox" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="artBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="gymBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="economicsBox" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="gymBox" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="addClassesButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="deleteButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="32767" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="updateButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="getStudentButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="updateButton" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
@@ -290,62 +236,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="updateButtonActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="codingBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Coding"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="orchestraBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Orchestra"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="debateBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Debate"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="debateBoxActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="theatreBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Theatre"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="horticultureBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Horticulture"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="medTechBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="MedTech"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="engineeringBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Engineering"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="statisticsBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Statistics"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JCheckBox" name="economicsBox">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Economics"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="getStudentButton">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Get Student"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="getStudentButtonActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>
