@@ -126,7 +126,7 @@ public class SQLiteConnect {
             ResultSet rs = input.executeQuery();
             info.add(rs.getString("Name"));
                         
-            for (int i = 0; i < 10; i++) {
+            for (int i = 1; i < 10; i++) {
                 info.add(rs.getString("Subject" + String.valueOf(i)));
             }
 
