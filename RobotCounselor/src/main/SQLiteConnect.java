@@ -54,9 +54,8 @@ public class SQLiteConnect {
                         + " Subject9 = ?";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
-                input.setString(1, name);
-                for (int i = 0; i < 10; i++) {
-                    input.setString(i+2, info.get(i));
+                for (int i = 1; i < info.size(); i++) {
+                    input.setString(i+1, info.get(i));
                 }
 		input.executeUpdate();
                 conn.close();
@@ -75,9 +74,8 @@ public class SQLiteConnect {
                         + " Subject8, Subject9) VALUES(?,?,?,?,?,?,?,?,?,?)";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
-		input.setString(1, name);
-                for (int i = 0; i < info.size(); i++) {
-                    input.setString(i+2, info.get(i));
+                for (int i = 1; i < info.size(); i++) {
+                    input.setString(i+1, info.get(i));
                 }
 		input.executeUpdate();
 		conn.close();
@@ -90,17 +88,7 @@ public class SQLiteConnect {
 	 * @param name
 	 */
 	public void deleteStudent(String name) {
-            String sql = "DELETE FROM Schedules WHERE "
-                        + "Name = ? ,"
-			+ " Subject1 = ? ,"
-			+ " Subject2 = ? ,"
-			+ " Subject3 = ? ,"
-			+ " Subject4 = ? ,"
-			+ " Subject5 = ? ,"
-			+ " Subject6 = ? ,"
-                        + " Subject7 = ? ,"
-                        + " Subject8 = ? ,"
-                        + " Subject9 = ?";
+            String sql = "DELETE FROM Schedules WHERE Name = ?";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
                 input.setString(1, name);
