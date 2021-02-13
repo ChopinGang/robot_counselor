@@ -70,17 +70,9 @@ public class SQLiteConnect {
          * @param name
 	 */
 	public void addStudent(String name, ArrayList<String> info) {
-            String sql = "INSERT INTO Schedules("
-			+ " Name = ? ,"
-			+ " Subject1 = ? ,"
-			+ " Subject2 = ? ,"
-			+ " Subject3 = ? ,"
-			+ " Subject4 = ? ,"
-			+ " Subject5 = ? ,"
-			+ " Subject6 = ? ,"
-                        + " Subject7 = ? ,"
-                        + " Subject8 = ? ,"
-                        + " Subject9 = ?)";
+            String sql = "INSERT INTO Schedules(Name, Subject1, Subject2,"
+			+ " Subject3, Subject4, Subject5, Subject6, Subject7,"
+                        + " Subject8, Subject9) VALUES(?,?,?,?,?,?,?,?,?,?)";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
 		input.setString(1, name);
@@ -126,7 +118,7 @@ public class SQLiteConnect {
             ResultSet rs = input.executeQuery();
             info.add(rs.getString("Name"));
                         
-            for (int i = 0; i < 10; i++) {
+            for (int i = 1; i < 10; i++) {
                 info.add(rs.getString("Subject" + String.valueOf(i)));
             }
 
