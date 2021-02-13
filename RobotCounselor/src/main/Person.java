@@ -17,10 +17,9 @@ public class Person {
     ArrayList<String> wanted = new ArrayList<>();
     ArrayList<String> schedule = new ArrayList<>();
     
-    public Person(String name, ArrayList<String> classes) {
-        this.name = name;
-        this.wanted = classes;
+    public Person(ArrayList<String> info) {
+        this.name = info.get(0);
+        for (int i = 1; i < wanted.size(); i++)
+            wanted.add(info.get(i));
     }
-    
-    
 }
