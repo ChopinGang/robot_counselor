@@ -111,14 +111,14 @@ public class SQLiteConnect {
 
         /**
 	 * Updates a student's schedule
-	 * @param info
          * @param name
+         * @return
 	 */
 	public ArrayList<String> getStudent(String name) {
             String sql = "Select, Name, Subject1, Subject2, Subject3, Subject4,"
 			+ " Subject5, Subject6, Subject7, Subject8, Subject9 "
                         + " FROM Schedules WHERE Name = ?";
-            ArrayList<String> info = new ArrayList<String>();
+            ArrayList<String> info = new ArrayList<>();
             try {
 			PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
 		input.setString(1, name);
