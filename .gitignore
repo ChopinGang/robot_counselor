@@ -1,7 +1,4 @@
-<<<<<<< Updated upstream
 /RobotCounselor/build/
-=======
-
 *.class
 RobotCounselor/build/classes/main/SQLiteConnect.class
 RobotCounselor/build/classes/main/Window$5.class
@@ -9,5 +6,3 @@ RobotCounselor/build/classes/main/Window$5.class
 *.xml
 *.properties
 *.class
-RobotCounselor/build/classes/main/SQLiteConnect.class
->>>>>>> Stashed changes
