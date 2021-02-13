@@ -50,4 +50,15 @@ public class Scheduler {
         list.add(c4);
     }
     
+    public static String personToString(ArrayList<String> person) {
+        String returnVal = "";
+        
+        returnVal += person.get(0) + ":\n";
+        for (int i = 1; i < person.size(); i++) {
+            returnVal += person.get(i) + "\n";
+        }
+        
+        return returnVal;
+    }
+    
 }
