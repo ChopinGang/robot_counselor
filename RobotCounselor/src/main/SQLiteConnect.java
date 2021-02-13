@@ -40,9 +40,9 @@ public class SQLiteConnect {
 	 * @param info
          * @param name
 	 */
-	public void updateStudent(String name, ArrayList<String> info) {
+	public void updateStudent(String name, String newName, ArrayList<String> info) {
             String sql = "UPDATE Schedules SET"
-			+ " WHERE Name = ? ,"
+			+ " WHERE Name = " + name + ","
 			+ " Subject1 = ? ,"
 			+ " Subject2 = ? ,"
 			+ " Subject3 = ? ,"
@@ -54,7 +54,7 @@ public class SQLiteConnect {
                         + " Subject9 = ?";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
-                input.setString(1, name);
+                input.setString(1, newName);
                 for (int i = 0; i < 10; i++) {
                     input.setString(i+2, info.get(i));
                 }
