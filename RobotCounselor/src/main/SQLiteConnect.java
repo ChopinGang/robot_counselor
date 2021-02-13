@@ -1,6 +1,7 @@
 package main;
 
 import java.sql.*;
+import java.util.ArrayList;
 
 
 public class SQLiteConnect {
@@ -39,7 +40,7 @@ public class SQLiteConnect {
 	 * @param info
          * @param name
 	 */
-	public void updateStudent(String name, String[] info) {
+	public void updateStudent(String name, ArrayList<String> info) {
 		String sql = "UPDATE Schedules SET"
 				+ " WHERE Name = ? ,"
 				+ " Subject1 = ? ,"
@@ -55,7 +56,7 @@ public class SQLiteConnect {
 			PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
 			input.setString(1, name);
                         for (int i = 0; i <= 10; i++) {
-                            input.setString(i+2, info[i]);
+                            input.setString(i+2, info.get(i));
                         }
 			input.executeUpdate();
 			conn.close();
@@ -68,7 +69,7 @@ public class SQLiteConnect {
 	 * @param info
          * @param name
 	 */
-	public void addStudent(String name, String[] info) {
+	public void addStudent(String name, ArrayList<String> info) {
 		String sql = "INSERT INTO Schedules("
 				+ " Name = ? ,"
 				+ " Subject1 = ? ,"
@@ -84,7 +85,7 @@ public class SQLiteConnect {
 			PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
 			input.setString(1, name);
                         for (int i = 0; i <= 10; i++) {
-                            input.setString(i+2, info[i]);
+                            input.setString(i+2, info.get(i));
                         }
 			input.executeUpdate();
 			conn.close();
