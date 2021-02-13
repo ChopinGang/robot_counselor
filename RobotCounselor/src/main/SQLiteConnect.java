@@ -76,7 +76,7 @@ public class SQLiteConnect {
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
 		input.setString(1, name);
-                for (int i = 0; i <= 10; i++) {
+                for (int i = 0; i < info.size(); i++) {
                     input.setString(i+2, info.get(i));
                 }
 		input.executeUpdate();
