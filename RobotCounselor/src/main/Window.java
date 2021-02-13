@@ -16,6 +16,8 @@ public class Window extends javax.swing.JFrame {
 
     ArrayList<String> classes = new ArrayList<>();
     SQLiteConnect sqlite = new SQLiteConnect();
+    String name;
+    
     /**
      * Creates new form Window
      */
@@ -59,6 +61,7 @@ public class Window extends javax.swing.JFrame {
         engineeringBox = new javax.swing.JCheckBox();
         statisticsBox = new javax.swing.JCheckBox();
         economicsBox = new javax.swing.JCheckBox();
+        getStudentButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Robot Counselor");
@@ -146,6 +149,13 @@ public class Window extends javax.swing.JFrame {
 
         economicsBox.setText("Economics");
 
+        getStudentButton.setText("Get Student");
+        getStudentButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                getStudentButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout inputPanelLayout = new javax.swing.GroupLayout(inputPanel);
         inputPanel.setLayout(inputPanelLayout);
         inputPanelLayout.setHorizontalGroup(
@@ -158,13 +168,16 @@ public class Window extends javax.swing.JFrame {
                             .addComponent(healthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(englishBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(bandBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(57, 57, 57))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE))
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addComponent(getStudentButton)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateButton))
                             .addComponent(deleteButton)
                             .addComponent(addClassesButton)
                             .addComponent(jLabel2)
-                            .addComponent(updateButton)
                             .addGroup(inputPanelLayout.createSequentialGroup()
                                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -185,10 +198,9 @@ public class Window extends javax.swing.JFrame {
                                     .addComponent(debateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(orchestraBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(horticultureBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(13, 13, 13)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(13, Short.MAX_VALUE))
         );
         inputPanelLayout.setVerticalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -238,7 +250,9 @@ public class Window extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(deleteButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(updateButton))
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(updateButton)
+                            .addComponent(getStudentButton)))
                     .addComponent(jScrollPane1))
                 .addGap(32, 32, 32))
         );
@@ -266,12 +280,12 @@ public class Window extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void englishBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_englishBoxActionPerformed
-        // TODO add your handling code here:
+        Scheduler.schedulePerson(sqlite.getStudent("Kellan Elhai"));     
     }//GEN-LAST:event_englishBoxActionPerformed
 
     private void addClassesButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addClassesButtonActionPerformed
         
-        String name = (String)JOptionPane.showInputDialog(
+        name = (String)JOptionPane.showInputDialog(
                     inputPanel,
                     "Enter student name:",
                     "Student Name",
@@ -294,68 +308,26 @@ public class Window extends javax.swing.JFrame {
         if (debateBox.isSelected()) {classes.add("Debate");}
         if (theatreBox.isSelected()) {classes.add("Theatre");}
         if (horticultureBox.isSelected()) {classes.add("Horticulture");}
-        if (medTechBox.isSelected()) {classes.add("medTechBox");}
+        if (medTechBox.isSelected()) {classes.add("MedTech");}
         if (engineeringBox.isSelected()) {classes.add("Engineering");}
         if (statisticsBox.isSelected()) {classes.add("Statistics");}
         if (economicsBox.isSelected()) {classes.add("Economics");}
         
         if ((name != null) && (name.length() > 0)) {
             //Write name to database and text field
+            //Scheduler.schedulePerson(sqlite.getStudent(name));  
             sqlite.addStudent(name, classes);
         }
         
     }//GEN-LAST:event_addClassesButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
-        String name = (String)JOptionPane.showInputDialog(
-                    inputPanel,
-                    "Enter student name to update:",
-                    "Update Student",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    null,
-                    "John");
-         
         if ((name != null) && (name.length() > 0)) {
-            Object[] options = {"Name","Classes"};
-            int selection = JOptionPane.showOptionDialog(inputPanel,
-                    "Do you want to update name or classes?",
-                    "Update Student",
-                    JOptionPane.YES_NO_OPTION,
-                    JOptionPane.QUESTION_MESSAGE,
-                    null,
-                    options, 
-                    null);
-            if (selection == 0){
-                //Let them change name and update in database
-                
-                String updateName = (String)JOptionPane.showInputDialog(
-                    inputPanel,
-                    "Enter student name to update:",
-                    "Update Student",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    null,
-                    "John");
-                
-                sqlite.updateStudent(updateName, classes);
-                
-            } else if (selection == 1) {
-                //Let them change the classes, auto show which are already checked
+                                        
             }   
-        }
     }//GEN-LAST:event_updateButtonActionPerformed
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
-        String name = (String)JOptionPane.showInputDialog(
-                    inputPanel,
-                    "Enter student name to remove:",
-                    "Update Student",
-                    JOptionPane.PLAIN_MESSAGE,
-                    null,
-                    null,
-                    "John");
-        
         if ((name != null) && (name.length() > 0)) {
             //Write name to database and text field
             sqlite.deleteStudent(name);
@@ -365,6 +337,46 @@ public class Window extends javax.swing.JFrame {
     private void debateBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debateBoxActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_debateBoxActionPerformed
+
+    private void getStudentButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_getStudentButtonActionPerformed
+        name = (String)JOptionPane.showInputDialog(
+                    inputPanel,
+                    "Enter student name to get:",
+                    "Update Student",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    null,
+                    "John");
+        
+        if ((name != null) && (name.length() > 0)) {
+            
+                //Let them change name and update in database
+                
+                //Let them change the classes, auto show which are already checked
+                
+                classes = sqlite.getStudent(name);              
+                
+                if (classes.contains("Algebra")) {algebraBox.setSelected(true);}
+                if (classes.contains("Band")) {bandBox.setSelected(true);}
+                if (classes.contains("English")) {englishBox.setSelected(true);}
+                if (classes.contains("Health")) {healthBox.setSelected(true);}
+                if (classes.contains("Social Studies")) {ssBox.setSelected(true);}
+                if (classes.contains("French")) {frenchBox.setSelected(true);}
+                if (classes.contains("Chemistry")) {chemistryBox.setSelected(true);}
+                if (classes.contains("Art")) {artBox.setSelected(true);}
+                if (classes.contains("Gym")) {gymBox.setSelected(true);}
+                if (classes.contains("Coding")) {codingBox.setSelected(true);}
+                if (classes.contains("Orchestra")) {orchestraBox.setSelected(true);}
+                if (classes.contains("Debate")) {debateBox.setSelected(true);}
+                if (classes.contains("Theatre")) {theatreBox.setSelected(true);}
+                if (classes.contains("Horticulture")) {horticultureBox.setSelected(true);}
+                if (classes.contains("MedTech")) {medTechBox.setSelected(true);}
+                if (classes.contains("Engineering")) {engineeringBox.setSelected(true);}
+                if (classes.contains("Economics")) {economicsBox.setSelected(true);}
+                
+            }   
+        
+    }//GEN-LAST:event_getStudentButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -414,6 +426,7 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JCheckBox engineeringBox;
     private javax.swing.JCheckBox englishBox;
     private javax.swing.JCheckBox frenchBox;
+    private javax.swing.JButton getStudentButton;
     private javax.swing.JCheckBox gymBox;
     private javax.swing.JCheckBox healthBox;
     private javax.swing.JCheckBox horticultureBox;
