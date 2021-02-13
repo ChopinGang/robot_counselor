@@ -21,14 +21,14 @@ public class Scheduler {
         }
         
         init(period.get(0), "English", "Chemistry", "Med Tech", "Economics");
-        init(period.get(0), "Band", "French", "Orchestra", "Debate");
-        init(period.get(0), "Algebra", "Social Studies", "Engineering", "Statistics");
-        init(period.get(0), "Band", "Gym", "Orchestra", "Med Tech");
-        init(period.get(0), "Algebra", "French", "Theater", "Statistics");
-        init(period.get(0), "Health", "Social Studies", "Debate", "Horticulture");
-        init(period.get(0), "English", "Chemistry", "Engineering", "Economics");
-        init(period.get(0), "Health", "Art", "Coding", "Horticulture");
-        init(period.get(0), "Art", "Gym", "Coding", "Theater");
+        init(period.get(1), "Band", "French", "Orchestra", "Debate");
+        init(period.get(2), "Algebra", "Social Studies", "Engineering", "Statistics");
+        init(period.get(3), "Band", "Gym", "Orchestra", "Med Tech");
+        init(period.get(4), "Algebra", "French", "Theater", "Statistics");
+        init(period.get(5), "Health", "Social Studies", "Debate", "Horticulture");
+        init(period.get(6), "English", "Chemistry", "Engineering", "Economics");
+        init(period.get(7), "Health", "Art", "Coding", "Horticulture");
+        init(period.get(8), "Art", "Gym", "Coding", "Theater");
         
         String name = person.get(0);
         ArrayList<String> classes = new ArrayList<>();
