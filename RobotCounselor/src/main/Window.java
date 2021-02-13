@@ -15,7 +15,7 @@ import javax.swing.JOptionPane;
 public class Window extends javax.swing.JFrame {
 
     ArrayList<String> classes = new ArrayList<>();
-    
+    SQLiteConnect sqlite = new SQLiteConnect();
     /**
      * Creates new form Window
      */
@@ -50,6 +50,15 @@ public class Window extends javax.swing.JFrame {
         studentsInfo = new javax.swing.JTextArea();
         deleteButton = new javax.swing.JButton();
         updateButton = new javax.swing.JButton();
+        codingBox = new javax.swing.JCheckBox();
+        orchestraBox = new javax.swing.JCheckBox();
+        debateBox = new javax.swing.JCheckBox();
+        theatreBox = new javax.swing.JCheckBox();
+        horticultureBox = new javax.swing.JCheckBox();
+        medTechBox = new javax.swing.JCheckBox();
+        engineeringBox = new javax.swing.JCheckBox();
+        statisticsBox = new javax.swing.JCheckBox();
+        economicsBox = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Robot Counselor");
@@ -114,6 +123,29 @@ public class Window extends javax.swing.JFrame {
             }
         });
 
+        codingBox.setText("Coding");
+
+        orchestraBox.setText("Orchestra");
+
+        debateBox.setText("Debate");
+        debateBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                debateBoxActionPerformed(evt);
+            }
+        });
+
+        theatreBox.setText("Theatre");
+
+        horticultureBox.setText("Horticulture");
+
+        medTechBox.setText("MedTech");
+
+        engineeringBox.setText("Engineering");
+
+        statisticsBox.setText("Statistics");
+
+        economicsBox.setText("Economics");
+
         javax.swing.GroupLayout inputPanelLayout = new javax.swing.GroupLayout(inputPanel);
         inputPanel.setLayout(inputPanelLayout);
         inputPanelLayout.setHorizontalGroup(
@@ -121,26 +153,42 @@ public class Window extends javax.swing.JFrame {
             .addGroup(inputPanelLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(englishBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(bandBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(inputPanelLayout.createSequentialGroup()
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(healthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(englishBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(bandBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(57, 57, 57))
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(deleteButton)
                             .addComponent(addClassesButton)
-                            .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addComponent(gymBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(artBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(chemistryBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(frenchBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ssBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addComponent(jLabel2)
-                            .addComponent(algebraBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(healthBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateButton))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 212, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                            .addComponent(updateButton)
+                            .addGroup(inputPanelLayout.createSequentialGroup()
+                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(gymBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(artBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(chemistryBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(frenchBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(ssBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(algebraBox, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(33, 33, 33)
+                                .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(codingBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(economicsBox)
+                                    .addComponent(medTechBox)
+                                    .addComponent(statisticsBox)
+                                    .addComponent(theatreBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(engineeringBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(debateBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(orchestraBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(horticultureBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGap(13, 13, 13)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
         inputPanelLayout.setVerticalGroup(
             inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,23 +198,41 @@ public class Window extends javax.swing.JFrame {
                     .addGroup(inputPanelLayout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(algebraBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(algebraBox)
+                            .addComponent(codingBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(bandBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(bandBox)
+                            .addComponent(orchestraBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(englishBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(englishBox)
+                            .addComponent(debateBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(healthBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(healthBox)
+                            .addComponent(theatreBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(ssBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(ssBox)
+                            .addComponent(horticultureBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(frenchBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(frenchBox)
+                            .addComponent(medTechBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(chemistryBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(chemistryBox)
+                            .addComponent(engineeringBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(artBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(artBox)
+                            .addComponent(statisticsBox, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(gymBox)
+                        .addGroup(inputPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(gymBox)
+                            .addComponent(economicsBox))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(addClassesButton)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -182,7 +248,7 @@ public class Window extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(inputPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -212,11 +278,7 @@ public class Window extends javax.swing.JFrame {
                     JOptionPane.PLAIN_MESSAGE,
                     null,
                     null,
-                    "John");
-         
-        if ((name != null) && (name.length() > 0)) {
-            //Write name to database and text field
-        }       
+                    "John");      
         
         if (algebraBox.isSelected()) {classes.add("Algebra");}
         if (bandBox.isSelected()) {classes.add("Band");}
@@ -227,8 +289,21 @@ public class Window extends javax.swing.JFrame {
         if (chemistryBox.isSelected()) {classes.add("Chemistry");}
         if (artBox.isSelected()) {classes.add("Art");}
         if (gymBox.isSelected()) {classes.add("Gym");}
-        System.out.println("Name is: " + name);
-        System.out.println(classes);
+        if (codingBox.isSelected()) {classes.add("Coding");}
+        if (orchestraBox.isSelected()) {classes.add("Orchestra");}
+        if (debateBox.isSelected()) {classes.add("Debate");}
+        if (theatreBox.isSelected()) {classes.add("Theatre");}
+        if (horticultureBox.isSelected()) {classes.add("Horticulture");}
+        if (medTechBox.isSelected()) {classes.add("medTechBox");}
+        if (engineeringBox.isSelected()) {classes.add("Engineering");}
+        if (statisticsBox.isSelected()) {classes.add("Statistics");}
+        if (economicsBox.isSelected()) {classes.add("Economics");}
+        
+        if ((name != null) && (name.length() > 0)) {
+            //Write name to database and text field
+            sqlite.addStudent(name, classes);
+        }
+        
     }//GEN-LAST:event_addClassesButtonActionPerformed
 
     private void updateButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateButtonActionPerformed
@@ -253,6 +328,18 @@ public class Window extends javax.swing.JFrame {
                     null);
             if (selection == 0){
                 //Let them change name and update in database
+                
+                String updateName = (String)JOptionPane.showInputDialog(
+                    inputPanel,
+                    "Enter student name to update:",
+                    "Update Student",
+                    JOptionPane.PLAIN_MESSAGE,
+                    null,
+                    null,
+                    "John");
+                
+                sqlite.updateStudent(updateName, classes);
+                
             } else if (selection == 1) {
                 //Let them change the classes, auto show which are already checked
             }   
@@ -271,8 +358,13 @@ public class Window extends javax.swing.JFrame {
         
         if ((name != null) && (name.length() > 0)) {
             //Write name to database and text field
+            sqlite.deleteStudent(name);
         } 
     }//GEN-LAST:event_deleteButtonActionPerformed
+
+    private void debateBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_debateBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_debateBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -315,17 +407,26 @@ public class Window extends javax.swing.JFrame {
     private javax.swing.JCheckBox artBox;
     private javax.swing.JCheckBox bandBox;
     private javax.swing.JCheckBox chemistryBox;
+    private javax.swing.JCheckBox codingBox;
+    private javax.swing.JCheckBox debateBox;
     private javax.swing.JButton deleteButton;
+    private javax.swing.JCheckBox economicsBox;
+    private javax.swing.JCheckBox engineeringBox;
     private javax.swing.JCheckBox englishBox;
     private javax.swing.JCheckBox frenchBox;
     private javax.swing.JCheckBox gymBox;
     private javax.swing.JCheckBox healthBox;
+    private javax.swing.JCheckBox horticultureBox;
     private javax.swing.JPanel inputPanel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JCheckBox medTechBox;
+    private javax.swing.JCheckBox orchestraBox;
     private javax.swing.JCheckBox ssBox;
+    private javax.swing.JCheckBox statisticsBox;
     private javax.swing.JTextArea studentsInfo;
+    private javax.swing.JCheckBox theatreBox;
     private javax.swing.JButton updateButton;
     // End of variables declaration//GEN-END:variables
 }
