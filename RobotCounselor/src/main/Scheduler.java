@@ -6,10 +6,21 @@
 
 package main;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Kellan Elhai
  */
 public class Scheduler {
+    
+    ArrayList<String> class1 = new ArrayList<>();
+    ArrayList<String> class2 = new ArrayList<>();
+    
+    static Person student;
+    
+    static void setPerson(Person person) { student = person; }
+    
+    
     
 }
