@@ -53,12 +53,12 @@ public class Scheduler {
     public static String personToString(ArrayList<String> person) {
         String returnVal = "";
         
-        returnVal += person.get(0) + ":\n";
-        for (int i = 1; i < person.size(); i++) {
-            returnVal += person.get(i) + "\n";
+        returnVal += person.get(0) + ": ";
+        for (int i = 1; i < person.size() - 1; i++) {
+            returnVal += (person.get(i) + ", ");
         }
         
-        return returnVal;
+        return returnVal + person.get(person.size() - 1) + "\n";
     }
     
 }
