@@ -90,7 +90,17 @@ public class SQLiteConnect {
 	 * @param name
 	 */
 	public void deleteStudent(String name) {
-            String sql = "DELETE FROM Schedules WHERE Name = ?";
+            String sql = "DELETE FROM Schedules WHERE "
+                        + "Name = ? ,"
+			+ " Subject1 = ? ,"
+			+ " Subject2 = ? ,"
+			+ " Subject3 = ? ,"
+			+ " Subject4 = ? ,"
+			+ " Subject5 = ? ,"
+			+ " Subject6 = ? ,"
+                        + " Subject7 = ? ,"
+                        + " Subject8 = ? ,"
+                        + " Subject9 = ?";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
                 input.setString(1, name);
