@@ -36,11 +36,11 @@ public class Scheduler {
             classes.add(person.get(i));
         }
         
-        
+        return new ArrayList<>();
     }
     
     private static boolean checkConflicts() {
-        
+        return true;
     }
     
     private static void init(ArrayList<String> list, String c1, String c2, String c3, String c4) {
