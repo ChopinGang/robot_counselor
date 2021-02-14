@@ -60,7 +60,11 @@ public class Scheduler {
             System.out.println("not scheduled");
             return new ArrayList<>();
         }
-        return finPerson;
+        ArrayList<String> retVal = new ArrayList<>();
+        retVal.add(name);
+        for (int i = 0; i < finPerson.size(); i++)
+            retVal.add(finPerson.get(i));
+        return retVal;
     }
     
     private static void init(ArrayList<String> list, String c1, String c2, String c3, String c4) {
