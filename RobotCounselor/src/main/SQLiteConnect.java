@@ -26,7 +26,6 @@ public class SQLiteConnect {
             try {
 		Class.forName("org.sqlite.JDBC");
 		conn = DriverManager.getConnection(url);
-                System.out.println("Connected");
             } catch (SQLException e) {
 		System.out.println(e.getMessage());
             } catch (Exception ex) {
@@ -42,7 +41,6 @@ public class SQLiteConnect {
 	 */
 	public void updateStudent(String name, ArrayList<String> info) {
             String sql = "UPDATE Schedules SET"
-			+ " WHERE Name = ? ,"
 			+ " Subject1 = ? ,"
 			+ " Subject2 = ? ,"
 			+ " Subject3 = ? ,"
@@ -51,17 +49,18 @@ public class SQLiteConnect {
 			+ " Subject6 = ? ,"
                         + " Subject7 = ? ,"
                         + " Subject8 = ? ,"
-                        + " Subject9 = ?";
+                        + " Subject9 = ?  "
+                        + " WHERE Name = ?";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
-                input.setString(1, name);
-                for (int i = 0; i < 10; i++) {
-                    input.setString(i+2, info.get(i));
+                input.setString(1,name);
+                for (int i = 1; i < info.size(); i++) {
+                    input.setString(i+1, info.get(i));
                 }
 		input.executeUpdate();
                 conn.close();
             } catch (SQLException e) {
-                System.out.println(e.getMessage());
+                e.printStackTrace();
             }
 	}
 	/**
@@ -75,9 +74,8 @@ public class SQLiteConnect {
                         + " Subject8, Subject9) VALUES(?,?,?,?,?,?,?,?,?,?)";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);
-		input.setString(1, name);
                 for (int i = 0; i < info.size(); i++) {
-                    input.setString(i+2, info.get(i));
+                    input.setString(i+1, info.get(i));
                 }
 		input.executeUpdate();
 		conn.close();
