@@ -18,6 +18,7 @@ public class Scheduler {
     public static ArrayList<String> schedulePerson(ArrayList<String> person) {
         ArrayList<ArrayList<String>> period = new ArrayList<>();
         ArrayList<String> finPerson = new ArrayList<>();
+        int counter = 0;
         for (int i = 0; i < 9; i++) {
             period.add(new ArrayList<String>());
         }
@@ -35,7 +36,7 @@ public class Scheduler {
         String name = person.get(0);
         person.remove(0);
         try {
-            while (true) {
+            while (++counter < 100) {
                 for (int i = 0; i < period.size(); i++) {
                     for (int j = 0; j < person.size(); j++) {
                         if (period.get(i).contains(person.get(j))) {
@@ -54,6 +55,8 @@ public class Scheduler {
                 } else {
                     break;
                 }
+                if (counter > 99)
+                    throw new Exception("based.txt");
             }
         } catch (Exception e) {
             e.printStackTrace();
