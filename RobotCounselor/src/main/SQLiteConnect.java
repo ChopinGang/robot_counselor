@@ -49,7 +49,7 @@ public class SQLiteConnect {
 			+ " Subject6 = ? ,"
                         + " Subject7 = ? ,"
                         + " Subject8 = ? ,"
-                        + " Subject9 = ? "
+                        + " Subject9 = ?  "
                         + " WHERE Name = ?";
             try {
 		PreparedStatement input = connect("StudentSchedule.db").prepareStatement(sql);

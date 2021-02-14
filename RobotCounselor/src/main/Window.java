@@ -367,7 +367,8 @@ public class Window extends javax.swing.JFrame {
             JOptionPane.ERROR_MESSAGE); 
         } else {
         
-        people.add(Scheduler.schedulePerson(classes));      
+        people.add(Scheduler.schedulePerson(classes)); 
+        classes = people.get(people.size() - 1);
         currentStudent = people.size() - 1;       
         disableChecks();      
         
