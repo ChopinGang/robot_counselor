@@ -34,26 +34,29 @@ public class Scheduler {
         
         String name = person.get(0);
         person.remove(0);
-        
-        while (true) {
-            for (int i = 0; i < period.size(); i++) {
-                for (int j = 0; j < person.size(); j++) {
-                    if (period.get(i).contains(person.get(j))) {
-                        finPerson.add(person.get(j));
-                        person.remove(j);
-                        break;
+        try {
+            while (true) {
+                for (int i = 0; i < period.size(); i++) {
+                    for (int j = 0; j < person.size(); j++) {
+                        if (period.get(i).contains(person.get(j))) {
+                            finPerson.add(person.get(j));
+                            person.remove(j);
+                            break;
+                        }
                     }
                 }
-            }
-            if (person.size() > 0) {
-                for (int i = 0; i < finPerson.size(); i++) {
-                    person.add(finPerson.get(i));
-                    Collections.shuffle(person);
+                if (person.size() > 0) {
+                    for (int i = 0; i < finPerson.size(); i++) {
+                        person.add(finPerson.get(i));
+                        Collections.shuffle(person);
+                    }
+                    finPerson.clear();
+                } else {
+                    break;
                 }
-                finPerson.clear();
-            } else {
-                break;
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         ArrayList<String> retVal = new ArrayList<>();
         retVal.add(name);
