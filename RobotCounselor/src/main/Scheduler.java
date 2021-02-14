@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class Scheduler {
     
-    public static void schedulePerson(ArrayList<String> person) {
+    public static ArrayList<String> schedulePerson(ArrayList<String> person) {
         ArrayList<ArrayList<String>> period = new ArrayList<>();
         for (int i = 0; i < 9; i++) {
             period.add(new ArrayList<String>());
@@ -36,11 +36,11 @@ public class Scheduler {
             classes.add(person.get(i));
         }
         
-        for (int i = 0; i < period.size(); i++) {
-            for (int j = 0; j < 4; j++) {
-                System.out.println(period.get(i).get(j));
-            }
-        }
+        
+    }
+    
+    private static boolean checkConflicts() {
+        
     }
     
     private static void init(ArrayList<String> list, String c1, String c2, String c3, String c4) {
